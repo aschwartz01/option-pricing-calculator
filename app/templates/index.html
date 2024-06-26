@@ -3,68 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black-Scholes Options Pricing Calculator (with Greeks)</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-    </style>
+    <title>Options Pricing Calculator</title>
 </head>
 <body>
-    <h1>Black-Scholes Options Pricing Calculator (with Greeks)</h1>
-    <form id="options-form">
-        <label for="S">Underlying Price (S):</label>
-        <input type="number" id="S" name="S" required>
-        <label for="K">Strike Price (K):</label>
-        <input type="number" id="K" name="K" required>
-        <label for="T">Time to Maturity (T):</label>
-        <input type="number" id="T" name="T" step="0.01" placeholder="e.g., 0.25 for 3 months" required>
-        <label for="r">Risk-Free Rate (r):</label>
-        <input type="number" id="r" name="r" step="0.01" placeholder="e.g., 0.05 for 5%" required>
-        <label for="sigma">Volatility (σ):</label>
-        <input type="number" id="sigma" name="sigma" step="0.01" placeholder="e.g., 0.2 for 20%" required>
-        <button type="submit">Calculate</button>
-    </form>
-    <table>
-        <thead>
-            <tr>
-                <th>Call Option</th>
-                <th>Put Option</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td id="call-price"></td>
-                <td id="put-price"></td>
-            </tr>
-            <tr>
-                <td id="call-delta"></td>
-                <td id="put-delta"></td>
-            </tr>
-            <tr>
-                <td id="call-gamma"></td>
-                <td id="put-gamma"></td>
-            </tr>
-            <tr>
-                <td id="call-vega"></td>
-                <td id="put-vega"></td>
-            </tr>
-            <tr>
-                <td id="call-theta"></td>
-                <td id="put-theta"></td>
-            </tr>
-            <tr>
-                <td id="call-rho"></td>
-                <td id="put-rho"></td>
-            </tr>
-        </tbody>
-    </table>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <h1>Options Pricing Calculator</h1>
+    <div>
+        <button onclick="location.href='/black_scholes'">Black-Scholes Model</button>
+        <button onclick="location.href='/binomial'">Binomial Tree Model</button>
+    </div>
 </body>
 </html>

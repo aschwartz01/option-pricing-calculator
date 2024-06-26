@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black-Scholes Model</title>
+</head>
+<body>
+    <h1>Black-Scholes Model</h1>
+    <form id="options-form">
+        <label for="S">Underlying Price (S):</label>
+        <input type="number" id="S" name="S" required>
+        <label for="K">Strike Price (K):</label>
+        <input type="number" id="K" name="K" required>
+        <label for="T">Time to Maturity (T):</label>
+        <input type="number" id="T" name="T" step="0.01" placeholder="e.g., 0.25 for 3 months" required>
+        <label for="r">Risk-Free Rate (r):</label>
+        <input type="number" id="r" name="r" step="0.01" placeholder="e.g., 0.05 for 5%" required>
+        <label for="sigma">Volatility (σ):</label>
+        <input type="number" id="sigma" name="sigma" step="0.01" placeholder="e.g., 0.2 for 20%" required>
+        <button type="submit">Calculate</button>
+    </form>
+    <div id="call-price"></div>
+    <div id="put-price"></div>
+    <div id="call-delta"></div>
+    <div id="put-delta"></div>
+    <div id="call-gamma"></div>
+    <div id="put-gamma"></div>
+    <div id="call-theta"></div>
+    <div id="put-theta"></div>
+    <div id="call-vega"></div>
+    <div id="put-vega"></div>
+    <div id="call-rho"></div>
+    <div id="put-rho"></div>
+    <button onclick="location.href='/'">Back to Home</button>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

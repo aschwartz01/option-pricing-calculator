@@ -9,8 +9,17 @@ def create_app():
     def index():
         return render_template('index.html')
 
+    @app.route("/black_scholes", methods=["GET"])
+    def black_scholes():
+        return render_template('black_scholes.html')
+
+    @app.route("/binomial", methods=["GET"])
+    def binomial():
+        return render_template('binomial.html')
+
     return app
 
 if __name__ == '__main__':
     app = create_app()
     app.run(debug=True, port=5001)
+

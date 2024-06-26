@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binomial Tree Model</title>
+    <script>
+        function toggleVolatilityInputs() {
+            var volatilitySection = document.getElementById('volatility-section');
+            var uptickDowntickSection = document.getElementById('uptick-downtick-section');
+            var method = document.querySelector('input[name="method"]:checked').value;
+            if (method === 'volatility') {
+                volatilitySection.style.display = 'block';
+                uptickDowntickSection.style.display = 'none';
+            } else {
+                volatilitySection.style.display = 'none';
+                uptickDowntickSection.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Binomial Tree Model</h1>
+    <form id="options-form">
+        <label for="S">Underlying Price (S):</label>
+        <input type="number" id="S" name="S" required>
+        <label for="K">Strike Price (K):</label>
+        <input type="number" id="K" name="K" required>
+        <label for="T">Time to Maturity (T):</label>
+        <input type="number" id="T" name="T" step="0.01" placeholder="e.g., 0.25 for 3 months" required>
+        <label for="r">Risk-Free Rate (r):</label>
+        <input type="number" id="r" name="r" step="0.01" placeholder="e.g., 0.05 for 5%" required>
+        <div>
+            <label>
+                <input type="radio" name="method" value="volatility" checked onclick="toggleVolatilityInputs()"> Use Volatility
+            </label>
+            <label>
+                <input type="radio" name="method" value="uptick_downtick" onclick="toggleVolatilityInputs()"> Use Uptick and Downtick
+            </label>
+        </div>
+        <div id="volatility-section">
+            <label for="sigma">Volatility (σ):</label>
+            <input type="number" id="sigma" name="sigma" step="0.01" placeholder="e.g., 0.2 for 20%">
+        </div>
+        <div id="uptick-downtick-section" style="display: none;">
+            <label for="u">Uptick (u):</label>
+            <input type="number" id="u" name="u" step="0.01" placeholder="e.g., 1.1 for 10%">
+            <label for="d">Downtick (d):</label>
+            <input type="number" id="d" name="d" step="0.01" placeholder="e.g., 0.9 for -10%">
+        </div>
+        <button type="submit">Calculate</button>
+    </form>
+    <div id="result"></div>
+    <button onclick="location.href='/'">Back to Index</button>
+    <script src="{{ url_for('static', filename='js/binomial.js') }}"></script>
+</body>
+</html>
+
